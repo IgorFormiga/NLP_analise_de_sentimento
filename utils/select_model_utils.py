@@ -46,7 +46,7 @@ def print_score(model, X_processed, y, tuned_parameters):
 
 
 
-def print_score_BayesSearchCV(model, X_processed, y, search_spaces):
+def print_score_BayesSearchCV(model, X_processed, y, search_spaces, n_iter):
 	
 	# Estratégia para avaliar o desempenho do modelo de validação cruzada no conjunto de testes.
 	scorer = make_scorer(f1_score, average = 'weighted')
@@ -67,7 +67,7 @@ def print_score_BayesSearchCV(model, X_processed, y, search_spaces):
 		scoring=scorer,
 		search_spaces=search_spaces,
 		cv = KFold(n_splits = 3, shuffle=True),
-		n_iter=50,
+		n_iter=n_iter,
 		n_jobs=-1,
 		random_state=42)
 	
