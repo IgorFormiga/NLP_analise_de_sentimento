@@ -1,0 +1,20 @@
+# **Projeto: Análise de Sentimentos em Português utilizando Machine Learning**
+
+### **Objetivo:** Criação de um modelo de Machine Learning de análise de sentimento (classificação) utilizado o processamento de linguagem natural. O modelo deve ser capaz de prever automaticamente os sentimentos dos reviews, sem a necessidade de serem rotuladas por humanos.
+
+### **Linguagem de programação:** Python
+
+### **Etapas:**
+
+- Compreensão da base de dados;
+- Preparação dos Dados (Pepiline) e Embeddings (CountVectorize | TF-IDF)
+- Criação dos Modelos 
+
+### **Data Science Lifecycle:**
+- 1º ciclo (1_analise_sentimento.ipynb): Desenvolvimento de um modelo de análise de sentimento que irá irá classificar os comentários em três classes: "Positivo", "Negativo" e "Neutro". 
+- 2º ciclo (2_analise_sentimento.ipynb): Desenvolvimento de um modelo de análise de sentimento que irá classificar de forma binária se um review é negativo ou não. (*em desenvolvimento*)
+
+### **Base de dados:** ([link](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce))
+O projeto foi desenvolvido utilizado um conjunto de dados público de e-commerce brasileiro de pedidos feitos na Olist Store, a maior loja de departamentos dos marketplaces brasileiros. O dataset possui informações de 100 mil pedidos de 2016 a 2018 feitos em vários marketplaces no Brasil. 
+
+A base de dados de reviews foi construída a partir compras de produtos por clientes na Olist Store. Assim que o cliente recebe o produto, ou vence a data prevista de entrega, o cliente recebe uma pesquisa de satisfação por e-mail onde pode dar uma nota da experiência de compra e anotar alguns comentários.
