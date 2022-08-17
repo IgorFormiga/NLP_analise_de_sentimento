@@ -2,7 +2,7 @@ from sklearn.base import BaseEstimator, TransformerMixin
 import spacy
 
 
-def filter_pos_tag(texto_lista, list_filter_pos_tag):
+def filter_pos_tag(texto_lista, list_filter_pos_tag, select='not in'):
     '''
     Argumentos:
     ----------
@@ -15,10 +15,15 @@ def filter_pos_tag(texto_lista, list_filter_pos_tag):
     nlp =  spacy.load('pt_core_news_sm')
 
     remove_verbs = list()
-   
-    for token in nlp(texto_lista):
-        if token.pos_ not in (list_filter_pos_tag):
-            remove_verbs.append(token.text)
+    if select == 'in':
+        for token in nlp(texto_lista):
+            if token.pos_ in (list_filter_pos_tag):
+                remove_verbs.append(token.lemma_)
+
+    else:
+        for token in nlp(texto_lista):
+            if token.pos_ not in (list_filter_pos_tag):
+                remove_verbs.append(token.lemma_)
 
     return remove_verbs
 
@@ -26,12 +31,13 @@ def filter_pos_tag(texto_lista, list_filter_pos_tag):
 # Criação da classe para aplicar o processo de stemming
 class ProcessoFilterPosTag(BaseEstimator, TransformerMixin):
 
-    def __init__(self, list_filter_pos_tag):
+    def __init__(self, list_filter_pos_tag, select='not in'):
         self.filter_pos_tag = list_filter_pos_tag
+        self.select = select
     
     def fit(self, X, y=None):
         return self
 
     # Sobrescrevendo o método transform da classe pai TransformerMixin
     def transform(self, X, y=None):
-        return [' '.join(filter_pos_tag(comment, self.filter_pos_tag)) for comment in X]
+        return [' '.join(filter_pos_tag(comment, self.filter_pos_tag, self.select)) for comment in X]
