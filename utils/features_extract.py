@@ -1,7 +1,7 @@
 from pandas import DataFrame
 from sklearn.base import BaseEstimator, TransformerMixin
 from numpy import array, zeros, mean
-from sklearn.feature_extraction.text import TfidfVectorizer
+from sklearn.feature_extraction.text import TfidfVectorizer, CountVectorizer
 from collections import defaultdict
 from nltk import word_tokenize
 import nltk
@@ -13,7 +13,7 @@ def extract_features_from_corpus(texto_lista, vectorizer, df=False):
     Argumentos:
     ----------
     texto_lista: list
-        Lista contentdo o texto em que será normalizada
+        Lista contentdo o texto em que será vetorizados
     vectorizer: object
         Engenharia utilizada para extração das features de texto
     '''
@@ -27,6 +27,26 @@ def extract_features_from_corpus(texto_lista, vectorizer, df=False):
         df_corpus_features = DataFrame(corpus_features, columns=features_names)
     
     return corpus_features, df_corpus_features
+
+
+
+def cut_off(texto_lista, percentage, ascending=True):
+    '''
+    Argumentos:
+    ----------
+    texto_lista: list
+        Lista contentdo o texto em que será removido as palavras mais ou menos frequentes
+    '''
+    vectorizer = CountVectorizer(min_df=15)
+    corpus_features, df_corpus_features = extract_features_from_corpus(texto_lista, vectorizer, df=True)
+    ocorrencia = df_corpus_features.sum(axis=0).sort_values(ascending=ascending)
+
+    quantidade_cut_off = round(len(ocorrencia) * percentage)
+
+    return list(ocorrencia[:quantidade_cut_off].index)
+
+
+
 
 # Criação da classe para extrair features 
 class ExtracaoFeatures(BaseEstimator, TransformerMixin):
