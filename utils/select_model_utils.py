@@ -3,18 +3,22 @@ from sklearn.model_selection import train_test_split, GridSearchCV, KFold
 from skopt import BayesSearchCV
 
 
+'''
+'weighted':
+Calcule as métricas para cada rótulo e encontre sua média ponderada pelo suporte 
+(o número de instâncias verdadeiras para cada rótulo). Isso altera 'macro' para 
+levar em conta o desequilíbrio do rótulo; pode resultar em um F-score que não está 
+entre precisão e recuperação.
+
+'micro':
+Calcule as métricas globalmente contando o total de verdadeiros positivos, falsos negativos e falsos positivos.
+'''
+
+
 def print_score(model, X_processed, y, tuned_parameters):
 	
 	# Estratégia para avaliar o desempenho do modelo de validação cruzada no conjunto de testes.
-	scorer = make_scorer(f1_score, average = 'weighted')
-	'''
-	'weighted':
-	Calcule as métricas para cada rótulo e encontre sua média ponderada pelo suporte 
-	(o número de instâncias verdadeiras para cada rótulo). Isso altera 'macro' para 
-	levar em conta o desequilíbrio do rótulo; pode resultar em um F-score que não está 
-	entre precisão e recuperação.
-	'''
-
+	scorer = make_scorer(f1_score, average = 'micro')
 
 	print(f"# Ajustando hiperparâmetros para {scorer}")
 	print()
@@ -49,15 +53,7 @@ def print_score(model, X_processed, y, tuned_parameters):
 def print_score_BayesSearchCV(model, X_processed, y, search_spaces, n_iter):
 	
 	# Estratégia para avaliar o desempenho do modelo de validação cruzada no conjunto de testes.
-	scorer = make_scorer(f1_score, average = 'weighted')
-	'''
-	'weighted':
-	Calcule as métricas para cada rótulo e encontre sua média ponderada pelo suporte 
-	(o número de instâncias verdadeiras para cada rótulo). Isso altera 'macro' para 
-	levar em conta o desequilíbrio do rótulo; pode resultar em um F-score que não está 
-	entre precisão e recuperação.
-	'''
-
+	scorer = make_scorer(f1_score, average = 'micro')
 
 	print(f"# Ajustando hiperparâmetros: ")
 	print()
