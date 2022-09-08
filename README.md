@@ -12,7 +12,8 @@
 
 ### **Data Science Lifecycle:**
 - 1º ciclo (analise_sentimento.ipynb): Desenvolvimento de um modelo de análise de sentimento que irá irá classificar os comentários em três classes: "Positivo", "Negativo" e "Neutro". 
-- 2º ciclo (2_analise_sentimento.ipynb): Troca do processo de stemming por lematização, remoção de ~10% de tokens que mais aparecem e que menos aparecem e incluir filtro Pos Tag. (*em desenvolvimento*)
+- 2º ciclo (2_analise_sentimento.ipynb): Troca do processo de stemming por lematização, remoção de ~10% de tokens que mais aparecem e que menos aparecem e incluir filtro Pos Tag.
+- 3º ciclo (3_analise_sentimento.ipynb): Classificar os comentários em duas classes: "Other" e "Negativo", em vez de três classes como definido no primeiro objetivo do projeto. (*em desenvolvimento*)
 
 ### **Base de dados:** ([link](https://www.kaggle.com/datasets/olistbr/brazilian-ecommerce))
 O projeto foi desenvolvido utilizado um conjunto de dados público de e-commerce brasileiro de pedidos feitos na Olist Store, a maior loja de departamentos dos marketplaces brasileiros. O dataset possui informações de 100 mil pedidos de 2016 a 2018 feitos em vários marketplaces no Brasil. 
