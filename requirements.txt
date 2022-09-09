@@ -1,0 +1,9 @@
+matplotlib==3.5.1
+nltk==3.7
+numpy==1.21.2
+pandas==1.4.1
+scikit_learn==1.1.2
+scikit_optimize==0.9.0
+spacy==3.4.0
+Unidecode==1.2.0
+wordcloud==1.8.2.2

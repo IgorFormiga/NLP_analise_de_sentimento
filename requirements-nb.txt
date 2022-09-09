@@ -1,0 +1,14 @@
+gensim==4.2.0
+imbalanced_learn==0.9.1
+imblearn==0.0
+matplotlib==3.5.1
+nltk==3.7
+numpy==1.21.2
+pandas==1.4.1
+scikit_learn==1.1.2
+scikit_optimize==0.9.0
+seaborn==0.11.2
+spacy==3.4.0
+Unidecode==1.2.0
+wordcloud==1.8.2.2
+yellowbrick==1.4
