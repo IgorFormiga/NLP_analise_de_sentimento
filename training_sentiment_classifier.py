@@ -21,13 +21,7 @@ Escrito por Igor C. Formiga - Última: 09/09/2022
 
 import os
 import pandas as pd
-import numpy as np
-import nltk
-import spacy
-from nltk import tokenize, RSLPStemmer, FreqDist, tokenize, word_tokenize
 from nltk.corpus import stopwords
-from nltk.lm import preprocessing
-from sklearn.model_selection import train_test_split, cross_val_score, cross_validate, GridSearchCV, KFold, StratifiedKFold
 from sklearn.linear_model import LogisticRegression
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.pipeline import Pipeline
@@ -36,7 +30,6 @@ from utils.stopword_utils import RemoverStopwords
 from utils.normalize_utils import ProcessoNormalizacao
 from utils.stemming_utils import ProcessoStemming
 from utils.lemmatization_utils import ProcessoLemmatization
-from utils.features_extract import ExtracaoFeatures, E2V_IDF, extract_features_from_corpus, cut_off
 from joblib import dump
 
 """
